@@ -1,14 +1,29 @@
-output "id" {
-  description = "ID of the created example"
-  value       = module.this.enabled ? module.this.id : null
+output "arn" {
+  description = "ARN of the lambda function"
+  value       = local.enabled ? module.lambda.arn : null
 }
 
-output "example" {
-  description = "Example output"
-  value       = module.this.enabled ? local.example : null
+output "invoke_arn" {
+  description = "Invoke ARN of the lambda function"
+  value       = local.enabled ? module.lambda.invoke_arn : null
 }
 
-output "random" {
-  description = "Stable random number for this example"
-  value       = module.this.enabled ? join("", random_integer.example[*].result) : null
+output "qualified_arn" {
+  description = "ARN identifying your Lambda Function Version (if versioning is enabled via publish = true)"
+  value       = local.enabled ? module.lambda.qualified_arn : null
+}
+
+output "function_name" {
+  description = "Lambda function name"
+  value       = local.enabled ? module.lambda.function_name : null
+}
+
+output "role_name" {
+  description = "Lambda IAM role name"
+  value       = local.enabled ? module.lambda.role_name : null
+}
+
+output "role_arn" {
+  description = "Lambda IAM role ARN"
+  value       = local.enabled ? module.lambda.role_arn : null
 }
