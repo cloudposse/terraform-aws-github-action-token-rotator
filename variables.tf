@@ -16,7 +16,7 @@ variable "function_description" {
 
 variable "parameter_store_token_path" {
   type        = string
-  description = "Path to store the token in parameter store"  
+  description = "Path to store the token in parameter store"
 }
 
 variable "parameter_store_private_key_path" {
