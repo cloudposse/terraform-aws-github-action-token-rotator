@@ -1,81 +1,11 @@
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-#         DELETE ME
-#
-# This is the README configuration for the Example module itself.
-# Delete this (up to and including the line with `---`) and fill in
-# the template below the dashes
-
-# Name of this project
-name: terraform-example-module
-
-# License of this project
-license: "APACHE2"
-
-# Copyrights
-copyrights:
-- name: "Cloud Posse, LLC"
-  url: "https://cloudposse.com"
-  year: "2021"
-
-# Canonical GitHub repo
-github_repo: cloudposse/terraform-example-module
-
-description: |-
-  This is an example project to provide all the scaffolding for a typical well-built Cloud Posse
-  Terraform module for AWS resources. It's a template repository you can
-  use when creating new repositories. This is not a useful module by itself.
-
-quickstart: |-
-  1. Use this repo as a template for a new repo.
-  2. Check out the new repo and create a `git` branch to work on.
-  3. Replace the Terraform code at the root of the repo with the code you want to publish.
-  4. Replace the code in `examples/complete` with Terraform code that will make a good automated test.
-     Please keep `context.tf` and `fixtures.us-east-2.tfvars` in place and change only `name`, leaving
-     `region`, `namespace`, `environment`, and `stage` as is. Provide outputs that will be useful for testing.
-  5. Update `test/src/examples_complete_test.go` to verify the outputs of running `terraform apply` on `examples/complete`.
-  6. Run `make github/init` to update the repo with the current Cloud Posse framework files (e.g. `CODEOWNERS`).
-  7. Run `make pr/auto-format` to format the Terraform code and generate documentation.
-  8. Commit everything to `git` and open your first PR on the new repo.
-
-references:
-- name: "Cloud Posse Documentation"
-  url: "https://docs.cloudposse.com"
-  description: "The Cloud Posse Developer Hub (documentation)"
-- name: "Terraform Standard Module Structure"
-  description: "HashiCorp's standard module structure is a file and directory layout we recommend for reusable modules distributed in separate repositories."
-  url: "https://www.terraform.io/docs/language/modules/develop/structure.html"
-- name: "Terraform Module Requirements"
-  description: "HashiCorp's guidance on all the requirements for publishing a module. Meeting the requirements for publishing a module is extremely easy."
-  url: "https://www.terraform.io/docs/registry/modules/publish.html#requirements"
-- name: "Terraform Version Pinning"
-  description: "The required_version setting can be used to constrain which versions of the Terraform CLI can be used with your configuration"
-  url: "https://www.terraform.io/docs/language/settings/index.html#specifying-a-required-terraform-version"
-
-related:
-- name: "Example App"
-  url: "https://github.com/cloudposse/example-app"
-  description: "Example application for CI/CD demonstrations of Codefresh"
-
-
 ---
-#         DELETE ME
-#
-# The above is the README configuration for the Example module itself.
-# Delete from here to the top of file and fill in the template below
-########################################################################################################################
-########################################################################################################################
-########################################################################################################################
-
-
 #
 # This is the canonical configuration for the `README.md`
 # Run `make readme` to rebuild the `README.md`
 #
 
 # Name of this project
-name:
+name: terraform-aws-github-action-token-rotator
 
 # Logo for this project
 #logo: docs/logo.png
@@ -87,16 +17,19 @@ license: "APACHE2"
 copyrights:
   - name: "Cloud Posse, LLC"
     url: "https://cloudposse.com"
-    year: "2021"
+    year: "2022"
 
 # Canonical GitHub repo
-github_repo:
+github_repo: cloudposse/terraform-aws-github-action-token-rotator
 
 # Badges to display
 badges:
+  - name: "Build Status"
+    image: "https://github.com/cloudposse/build-harness/workflows/docker/badge.svg?branch=main"
+    url: "https://github.com/cloudposse/build-harness/actions?query=workflow%3Adocker"
   - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse/terraform-example-module.svg"
-    url: "https://github.com/cloudposse/terraform-example-module/releases/latest"
+    image: "https://img.shields.io/github/release/cloudposse/build-harness.svg"
+    url: "https://github.com/cloudposse/build-harness/releases/latest"
   - name: "Slack Community"
     image: "https://slack.cloudposse.com/badge.svg"
     url: "https://slack.cloudposse.com"
@@ -104,68 +37,72 @@ badges:
     image: "https://img.shields.io/discourse/https/ask.sweetops.com/posts.svg"
     url: "https://ask.sweetops.com/"
 
-# List any related terraform modules that this module may be used with or that this module depends on.
 related:
-  - name: "terraform-null-label"
-    description: "Terraform module designed to generate consistent names and tags for resources. Use terraform-null-label to implement a strict naming convention."
-    url: "https://github.com/cloudposse/terraform-null-label"
+  - name: "lambda-github-action-token-rotator"
+    description: "The Lambda function this module installs"
+    url: "https://github.com/cloudposse/lambda-github-action-token-rotator"
 
-# List any resources helpful for someone to get started. For example, link to the hashicorp documentation or AWS documentation.
-references:
+# References
+#references:
+#  - name: "Wikipedia - Test Harness"
+#    description: 'The `build-harness` is similar in concept to a "Test Harness"'
+#    url: "https://en.wikipedia.org/wiki/Test_harness"
+
+# Screenshots
+#screenshots:
+#  - name: "demo"
+#    description: "Example of using the `build-harness` to build a docker image"
+#    url: "https://cdn.rawgit.com/cloudposse/build-harness/master/docs/demo.svg"
 
 # Short description of this project
 description: |-
-  Short
-  description
+  This module deploys a [lambda function](https://github.com/cloudposse/lambda-github-action-token-rotator) that runs as 
+  a GitHub Application and periodically gets a new GitHub Runner Registration Token from the GitHub API. This token is 
+  then stored in AWS Systems Manager Parameter Store.
 
 # Introduction to the project
-introduction: |-
-  This is an introduction.
+#introduction: |-
+#  This is an introduction.
 
-# How to use this module. Should be an easy example to copy and paste.
+# How to use this project
 usage: |-
-  For a complete example, see [examples/complete](examples/complete).
-
-  For automated tests of the complete example using [bats](https://github.com/bats-core/bats-core) and [Terratest](https://github.com/gruntwork-io/terratest)
-  (which tests and deploys the example on AWS), see [test](test).
-
+  usage: |-
   ```hcl
-  # Create a standard label resource. See [null-label](https://github.com/cloudposse/terraform-null-label/#terraform-null-label--)
-  module "label" {
-    source  = "cloudposse/label/null"
-    # Cloud Posse recommends pinning every module to a specific version, though usually you want to use the current one
-    # version = "x.x.x"
-
-    namespace = "eg"
-    name      = "example"
-  }
-
-  module "example" {
-    source  = "cloudposse/*****/aws"
-    # Cloud Posse recommends pinning every module to a specific version
-    # version = "x.x.x"
-
-    example = "Hello world!"
-
-    context = module.label.this
-  }
-  ```
+  module "github_action_token_rotator" {
+      source = "cloudposse/github-action-token-rotator/aws"
+      # Cloud Posse recommends pinning every module to a specific version
+      # version = "x.x.x"
+      parameter_store_token_path       = "/github/runners/cloudposse/registrationToken"
+      parameter_store_private_key_path = "/github/runners/cloudposse/privateKey"
+      github_app_id                    = "111111"
+      github_app_installation_id       = "22222222"
+      github_org                       = "cloudposse"
+  }```
 
 # Example usage
-examples: |-
-  Here is an example of using this module:
-  - [`examples/complete`](https://github.com/cloudposse/terraform-example-module/) - complete example of using this module
+#examples: |-
+#  Here are some real world examples:
+#  TODO: Add examples
 
 # How to get started quickly
 quickstart: |-
-  Here's how to get started...
-
-# Other files to include in this README from the project folder
-include:
-  - "docs/targets.md"
-  - "docs/terraform.md"
+  1. Browse to https://github.com/organizations/{YOUR_ORG}/settings/apps and click the New GitHub App button
+  1. Set the name to "GitHub Action Token Rotator"
+  1. Set the Homepage URL to `https://github.com/cloudposse/lambda-github-action-token-rotator`
+  1. Uncheck the Active checkbox under the Webhook heading
+  1. Select `Read and write` under Organization permissions -> Self-hosted runners
+  1. Click the Create GitHub App button at the bottom of the page
+  1. Under the `Client secrets` section, click the `Generate a new client secret` button
+  1. Copy the Client secret to a safe place, it will be needed to install the app
+  1. Under the `Private key` section, click the `Generate a private key` button
+  1. Download the private key to a safe place, it will be needed to install the app
+  1. Convert the private key to a PEM file using the following command:
+    `openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in {DOWNLOADED_FILE_NAME}.pem -out private-key-pkcs8.key`
+  1. Base64 encode the private key using the following command:
+    `cat private-key-pkcs8.key | base64`
+  1. Copy the Base64 value to AWS SSM Parameter store at `/github/runners/${YOUR_GITHUB_ORG}/privateKey`
 
 # Contributors to this project
 contributors:
-  - name: "Erik Osterman"
-    github: "osterman"
+  - name: "Matt Calhoun"
+    github: "mcalhoun"

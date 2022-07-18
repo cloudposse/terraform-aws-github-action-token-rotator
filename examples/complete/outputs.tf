@@ -1,14 +1,29 @@
-output "id" {
-  description = "ID of the created example"
-  value       = module.example.id
+output "arn" {
+  description = "ARN of the lambda function"
+  value       = module.example.arn
 }
 
-output "example" {
-  description = "Output \"example\" from example module"
-  value       = module.example.example
+output "invoke_arn" {
+  description = "Invoke ARN of the lambda function"
+  value       = module.example.invoke_arn
 }
 
-output "random" {
-  description = "Output \"random\" from example module"
-  value       = module.example.random
+output "qualified_arn" {
+  description = "ARN identifying your Lambda Function Version (if versioning is enabled via publish = true)"
+  value       = module.example.qualified_arn
+}
+
+output "function_name" {
+  description = "Lambda function name"
+  value       = module.example.function_name
+}
+
+output "role_name" {
+  description = "Lambda IAM role name"
+  value       = module.example.role_name
+}
+
+output "role_arn" {
+  description = "Lambda IAM role ARN"
+  value       = module.example.role_arn
 }
