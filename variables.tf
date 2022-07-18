@@ -47,6 +47,6 @@ variable "schedule_expression" {
 
 variable "lambda_zip_version" {
   description = "The version of the Lambda function to deploy"
-  default     = "latest"
+  default     = "0.1.0"
   type        = string
 }

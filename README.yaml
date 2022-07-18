@@ -66,7 +66,6 @@ description: |-
 
 # How to use this project
 usage: |-
-  usage: |-
   ```hcl
   module "github_action_token_rotator" {
       source = "cloudposse/github-action-token-rotator/aws"
@@ -77,7 +76,8 @@ usage: |-
       github_app_id                    = "111111"
       github_app_installation_id       = "22222222"
       github_org                       = "cloudposse"
-  }```
+  }
+  ```
 
 # Example usage
 #examples: |-

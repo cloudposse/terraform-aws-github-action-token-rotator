@@ -97,7 +97,6 @@ the registry shows many of our inputs as required when in fact they are optional
 The table below correctly indicates which inputs are required.
 
 
-usage: |-
 ```hcl
 module "github_action_token_rotator" {
     source = "cloudposse/github-action-token-rotator/aws"
@@ -108,7 +107,8 @@ module "github_action_token_rotator" {
     github_app_id                    = "111111"
     github_app_installation_id       = "22222222"
     github_org                       = "cloudposse"
-}```
+}
+```
 
 ## Quick Start
 
