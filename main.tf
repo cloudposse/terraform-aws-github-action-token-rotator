@@ -102,7 +102,7 @@ resource "aws_iam_role_policy_attachment" "this" {
 module "parameter_store_private_key" {
   count   = local.enabled ? 1 : 0
   source  = "cloudposse/ssm-parameter-store/aws"
-  version = "0.10.0"
+  version = "0.13.0"
 
   parameter_read = [var.parameter_store_private_key_path]
   context        = module.this.context
