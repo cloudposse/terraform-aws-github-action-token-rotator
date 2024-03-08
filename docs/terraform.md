@@ -17,7 +17,7 @@
 | Name | Source | Version |
 |------|--------|---------|
 | <a name="module_label"></a> [label](#module\_label) | cloudposse/label/null | 0.25.0 |
-| <a name="module_lambda"></a> [lambda](#module\_lambda) | cloudposse/lambda-function/aws | 0.3.2 |
+| <a name="module_lambda"></a> [lambda](#module\_lambda) | cloudposse/lambda-function/aws | 0.5.3 |
 | <a name="module_parameter_store_private_key"></a> [parameter\_store\_private\_key](#module\_parameter\_store\_private\_key) | cloudposse/ssm-parameter-store/aws | 0.10.0 |
 | <a name="module_this"></a> [this](#module\_this) | cloudposse/label/null | 0.25.0 |
 | <a name="module_utils"></a> [utils](#module\_utils) | cloudposse/utils/aws | n/a |
