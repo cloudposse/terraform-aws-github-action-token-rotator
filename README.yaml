@@ -1,4 +1,3 @@
----
 #
 # This is the canonical configuration for the `README.md`
 # Run `make readme` to rebuild the `README.md`
@@ -24,19 +23,17 @@ github_repo: cloudposse/terraform-aws-github-action-token-rotator
 
 # Badges to display
 badges:
-  - name: "Build Status"
-    image: "https://github.com/cloudposse/build-harness/workflows/docker/badge.svg?branch=main"
-    url: "https://github.com/cloudposse/build-harness/actions?query=workflow%3Adocker"
-  - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse/build-harness.svg"
-    url: "https://github.com/cloudposse/build-harness/releases/latest"
-  - name: "Slack Community"
-    image: "https://slack.cloudposse.com/badge.svg"
-    url: "https://slack.cloudposse.com"
-  - name: "Discourse Forum"
-    image: "https://img.shields.io/discourse/https/ask.sweetops.com/posts.svg"
-    url: "https://ask.sweetops.com/"
+  - name: Latest Release
+    image: https://img.shields.io/github/release/cloudposse/terraform-aws-github-action-token-rotator.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-aws-github-action-token-rotator/releases/latest
+  - name: Last Updated
+    image: https://img.shields.io/github/last-commit/cloudposse/terraform-aws-github-action-token-rotator.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-aws-github-action-token-rotator/commits
+  - name: Slack Community
+    image: https://slack.cloudposse.com/for-the-badge.svg
+    url: https://slack.cloudposse.com
 
+# List any related terraform modules that this module may be used with or that this module depends on.
 related:
   - name: "lambda-github-action-token-rotator"
     description: "The Lambda function this module installs"
@@ -103,6 +100,4 @@ quickstart: |-
   1. Copy the Base64 value to AWS SSM Parameter store at `/github/runners/${YOUR_GITHUB_ORG}/privateKey`
 
 # Contributors to this project
-contributors:
-  - name: "Matt Calhoun"
-    github: "mcalhoun"
+contributors: []
