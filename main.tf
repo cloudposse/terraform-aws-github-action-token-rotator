@@ -34,7 +34,7 @@ module "label" {
 module "lambda" {
   enabled = local.enabled
   source  = "cloudposse/lambda-function/aws"
-  version = "0.3.2"
+  version = "0.6.1"
 
   function_name = local.enabled ? module.label[0].id : null
   description   = var.function_description
